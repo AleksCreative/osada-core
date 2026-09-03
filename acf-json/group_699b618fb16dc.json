@@ -1,0 +1,156 @@
+{
+    "key":  "group_699b618fb16dc",
+    "title":  "Dane Budynku",
+    "fields":  [
+                   {
+                       "key":  "field_699b619008626",
+                       "label":  "Szerokość geograficzna",
+                       "name":  "latitude",
+                       "aria-label":  "",
+                       "type":  "number",
+                       "instructions":  "Wprowadź szerokość geograficzną budynku.",
+                       "required":  1,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "min":  "",
+                       "max":  "",
+                       "allow_in_bindings":  0,
+                       "placeholder":  "",
+                       "step":  "0.000001",
+                       "prepend":  "",
+                       "append":  ""
+                   },
+                   {
+                       "key":  "field_699b62b7a403c",
+                       "label":  "Długość geograficzna",
+                       "name":  "longitude",
+                       "aria-label":  "",
+                       "type":  "number",
+                       "instructions":  "Wprowadź długość geograficzną budynku.",
+                       "required":  1,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "min":  "",
+                       "max":  "",
+                       "allow_in_bindings":  0,
+                       "placeholder":  "",
+                       "step":  "0.000001",
+                       "prepend":  "",
+                       "append":  ""
+                   },
+                   {
+                       "key":  "field_6a1af2472aa5b",
+                       "label":  "Podtytuł H3",
+                       "name":  "subtitle",
+                       "aria-label":  "",
+                       "type":  "textarea",
+                       "instructions":  "Opis, który pojawi się w wysuwanym panelu lub popupie.",
+                       "required":  1,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "maxlength":  "",
+                       "allow_in_bindings":  0,
+                       "rows":  4,
+                       "placeholder":  "",
+                       "new_lines":  ""
+                   },
+                   {
+                       "key":  "field_699b63afa403d",
+                       "label":  "Krótki opis",
+                       "name":  "short_description",
+                       "aria-label":  "",
+                       "type":  "wysiwyg",
+                       "instructions":  "Opis, który pojawi się w wysuwanym panelu lub popupie.",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "allow_in_bindings":  0,
+                       "tabs":  "all",
+                       "toolbar":  "full",
+                       "media_upload":  1,
+                       "delay":  0
+                   },
+                   {
+                       "key":  "field_699b6446a403e",
+                       "label":  "Ikona znacznika",
+                       "name":  "marker_icon",
+                       "aria-label":  "",
+                       "type":  "url",
+                       "instructions":  "Użyj własnego rysunku jako znacznika na mapie.",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "allow_in_bindings":  0,
+                       "placeholder":  ""
+                   },
+                   {
+                       "key":  "field_699b65108501d",
+                       "label":  "Numer na trasie turystycznej",
+                       "name":  "tour_order",
+                       "aria-label":  "",
+                       "type":  "number",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "min":  "",
+                       "max":  "",
+                       "allow_in_bindings":  0,
+                       "placeholder":  "",
+                       "step":  "",
+                       "prepend":  "",
+                       "append":  ""
+                   }
+               ],
+    "location":  [
+                     [
+                         {
+                             "param":  "post_type",
+                             "operator":  "==",
+                             "value":  "budynek"
+                         }
+                     ]
+                 ],
+    "menu_order":  0,
+    "position":  "normal",
+    "style":  "default",
+    "label_placement":  "top",
+    "instruction_placement":  "label",
+    "hide_on_screen":  "",
+    "active":  true,
+    "description":  "",
+    "show_in_rest":  1,
+    "display_title":  "",
+    "allow_ai_access":  false,
+    "ai_description":  ""
+}

@@ -1,0 +1,522 @@
+{
+    "key":  "group_6a57dfcba78ed",
+    "title":  "Treść strony budynku",
+    "fields":  [
+                   {
+                       "key":  "field_6a57dfcc74a89",
+                       "label":  "Ilustracja główna",
+                       "name":  "hero_illustration",
+                       "aria-label":  "",
+                       "type":  "image",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "return_format":  "id",
+                       "library":  "all",
+                       "min_width":  "",
+                       "min_height":  "",
+                       "min_size":  "",
+                       "max_width":  "",
+                       "max_height":  "",
+                       "max_size":  "",
+                       "mime_types":  "jpg, jpeg, png",
+                       "allow_in_bindings":  0,
+                       "preview_size":  "medium"
+                   },
+                   {
+                       "key":  "field_6a57e03b3f2c9",
+                       "label":  "W skrócie",
+                       "name":  "quick_facts",
+                       "aria-label":  "",
+                       "type":  "repeater",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "layout":  "table",
+                       "pagination":  0,
+                       "min":  0,
+                       "max":  6,
+                       "collapsed":  "",
+                       "button_label":  "Add Row",
+                       "rows_per_page":  20,
+                       "sub_fields":  [
+                                          {
+                                              "key":  "field_6a57e15717156",
+                                              "label":  "Typ informacji",
+                                              "name":  "fact_type",
+                                              "aria-label":  "",
+                                              "type":  "select",
+                                              "instructions":  "",
+                                              "required":  1,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "choices":  {
+                                                              "date":  "Data powstania",
+                                                              "style":  "Styl architektoniczny",
+                                                              "address":  "Adres",
+                                                              "original_use":  "Pierwotna funkcja",
+                                                              "current_use":  "Obecna funkcja",
+                                                              "visiting":  "Zwiedzanie"
+                                                          },
+                                              "default_value":  false,
+                                              "return_format":  "value",
+                                              "multiple":  0,
+                                              "allow_null":  0,
+                                              "allow_in_bindings":  0,
+                                              "ui":  0,
+                                              "ajax":  0,
+                                              "placeholder":  "",
+                                              "create_options":  0,
+                                              "save_options":  0,
+                                              "parent_repeater":  "field_6a57e03b3f2c9"
+                                          },
+                                          {
+                                              "key":  "field_6a57e7ef1ae01",
+                                              "label":  "Treść Informacji",
+                                              "name":  "fact_content",
+                                              "aria-label":  "",
+                                              "type":  "textarea",
+                                              "instructions":  "",
+                                              "required":  1,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "maxlength":  "",
+                                              "allow_in_bindings":  0,
+                                              "rows":  "",
+                                              "placeholder":  "",
+                                              "new_lines":  "br",
+                                              "parent_repeater":  "field_6a57e03b3f2c9"
+                                          }
+                                      ]
+                   },
+                   {
+                       "key":  "field_6a57e86485652",
+                       "label":  "Poznaj historię",
+                       "name":  "history",
+                       "aria-label":  "",
+                       "type":  "wysiwyg",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "allow_in_bindings":  0,
+                       "tabs":  "all",
+                       "toolbar":  "full",
+                       "media_upload":  1,
+                       "delay":  0
+                   },
+                   {
+                       "key":  "field_6a57e8a885653",
+                       "label":  "Czy wiesz, że...",
+                       "name":  "did_you_know",
+                       "aria-label":  "",
+                       "type":  "wysiwyg",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "allow_in_bindings":  0,
+                       "tabs":  "all",
+                       "toolbar":  "full",
+                       "media_upload":  1,
+                       "delay":  0
+                   },
+                   {
+                       "key":  "field_6a57f23ee184a",
+                       "label":  "Podróż w czasie",
+                       "name":  "time_travel",
+                       "aria-label":  "",
+                       "type":  "repeater",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "layout":  "block",
+                       "pagination":  0,
+                       "min":  0,
+                       "max":  0,
+                       "collapsed":  "",
+                       "button_label":  "Add Row",
+                       "rows_per_page":  20,
+                       "sub_fields":  [
+                                          {
+                                              "key":  "field_6a57f278e184b",
+                                              "label":  "Zdjęcie archiwalne",
+                                              "name":  "image",
+                                              "aria-label":  "",
+                                              "type":  "image",
+                                              "instructions":  "",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "return_format":  "id",
+                                              "library":  "all",
+                                              "min_width":  "",
+                                              "min_height":  "",
+                                              "min_size":  "",
+                                              "max_width":  "",
+                                              "max_height":  "",
+                                              "max_size":  "",
+                                              "mime_types":  "",
+                                              "allow_in_bindings":  0,
+                                              "preview_size":  "medium",
+                                              "parent_repeater":  "field_6a57f23ee184a"
+                                          },
+                                          {
+                                              "key":  "field_6a57f2a3e184c",
+                                              "label":  "Tytuł / data",
+                                              "name":  "title",
+                                              "aria-label":  "",
+                                              "type":  "text",
+                                              "instructions":  "np. „Willa Dittricha, ok. 1900 r.”",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "maxlength":  "",
+                                              "allow_in_bindings":  0,
+                                              "placeholder":  "",
+                                              "prepend":  "",
+                                              "append":  "",
+                                              "parent_repeater":  "field_6a57f23ee184a"
+                                          },
+                                          {
+                                              "key":  "field_6a57f2d1e184d",
+                                              "label":  "Opis / źródło",
+                                              "name":  "caption",
+                                              "aria-label":  "",
+                                              "type":  "textarea",
+                                              "instructions":  "",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "maxlength":  "",
+                                              "allow_in_bindings":  0,
+                                              "rows":  "",
+                                              "placeholder":  "",
+                                              "new_lines":  "",
+                                              "parent_repeater":  "field_6a57f23ee184a"
+                                          },
+                                          {
+                                              "key":  "field_6a59de6b82a1e",
+                                              "label":  "Link do źródła",
+                                              "name":  "caption_url",
+                                              "aria-label":  "",
+                                              "type":  "url",
+                                              "instructions":  "",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "allow_in_bindings":  0,
+                                              "placeholder":  "",
+                                              "parent_repeater":  "field_6a57f23ee184a"
+                                          }
+                                      ]
+                   },
+                   {
+                       "key":  "field_6a57f0dcfae17",
+                       "label":  "Architektura",
+                       "name":  "architecture",
+                       "aria-label":  "",
+                       "type":  "wysiwyg",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "allow_in_bindings":  0,
+                       "tabs":  "all",
+                       "toolbar":  "full",
+                       "media_upload":  1,
+                       "delay":  0
+                   },
+                   {
+                       "key":  "field_6a57f0f7fae18",
+                       "label":  "Spójrz uważniej",
+                       "name":  "take_a_closer_look",
+                       "aria-label":  "",
+                       "type":  "wysiwyg",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "default_value":  "",
+                       "allow_in_bindings":  0,
+                       "tabs":  "all",
+                       "toolbar":  "full",
+                       "media_upload":  1,
+                       "delay":  0
+                   },
+                   {
+                       "key":  "field_6a57f53f229de",
+                       "label":  "Galeria",
+                       "name":  "gallery",
+                       "aria-label":  "",
+                       "type":  "gallery",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "return_format":  "id",
+                       "library":  "all",
+                       "min":  0,
+                       "max":  "",
+                       "min_width":  "",
+                       "min_height":  "",
+                       "min_size":  "",
+                       "max_width":  "",
+                       "max_height":  "",
+                       "max_size":  "",
+                       "mime_types":  "",
+                       "insert":  "append",
+                       "preview_size":  "medium"
+                   },
+                   {
+                       "key":  "field_6a57f7e3a9112",
+                       "label":  "W pobliżu",
+                       "name":  "nearby_buildings",
+                       "aria-label":  "",
+                       "type":  "repeater",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "layout":  "table",
+                       "pagination":  0,
+                       "min":  0,
+                       "max":  0,
+                       "collapsed":  "",
+                       "button_label":  "Add Row",
+                       "rows_per_page":  20,
+                       "sub_fields":  [
+                                          {
+                                              "key":  "field_6a57f824a9113",
+                                              "label":  "Budynek",
+                                              "name":  "building",
+                                              "aria-label":  "",
+                                              "type":  "post_object",
+                                              "instructions":  "",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "post_type":  [
+                                                                "budynek"
+                                                            ],
+                                              "post_status":  "",
+                                              "taxonomy":  "",
+                                              "return_format":  "id",
+                                              "multiple":  0,
+                                              "allow_null":  0,
+                                              "allow_in_bindings":  0,
+                                              "bidirectional":  0,
+                                              "ui":  1,
+                                              "bidirectional_target":  [
+
+                                                                       ],
+                                              "parent_repeater":  "field_6a57f7e3a9112"
+                                          },
+                                          {
+                                              "key":  "field_6a57f854a9114",
+                                              "label":  "Odległość",
+                                              "name":  "distance",
+                                              "aria-label":  "",
+                                              "type":  "text",
+                                              "instructions":  "np. 50m",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "maxlength":  "",
+                                              "allow_in_bindings":  0,
+                                              "placeholder":  "",
+                                              "prepend":  "",
+                                              "append":  "",
+                                              "parent_repeater":  "field_6a57f7e3a9112"
+                                          },
+                                          {
+                                              "key":  "field_6a57f88aa9115",
+                                              "label":  "Czas dojścia",
+                                              "name":  "walking_time",
+                                              "aria-label":  "",
+                                              "type":  "text",
+                                              "instructions":  "np. 3 min",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "maxlength":  "",
+                                              "allow_in_bindings":  0,
+                                              "placeholder":  "",
+                                              "prepend":  "",
+                                              "append":  "",
+                                              "parent_repeater":  "field_6a57f7e3a9112"
+                                          }
+                                      ]
+                   },
+                   {
+                       "key":  "field_6a57f8ad90279",
+                       "label":  "Źródła",
+                       "name":  "sources",
+                       "aria-label":  "",
+                       "type":  "repeater",
+                       "instructions":  "",
+                       "required":  0,
+                       "conditional_logic":  0,
+                       "wrapper":  {
+                                       "width":  "",
+                                       "class":  "",
+                                       "id":  ""
+                                   },
+                       "layout":  "table",
+                       "pagination":  0,
+                       "min":  0,
+                       "max":  0,
+                       "collapsed":  "",
+                       "button_label":  "Add Row",
+                       "rows_per_page":  20,
+                       "sub_fields":  [
+                                          {
+                                              "key":  "field_6a57f8c79027a",
+                                              "label":  "Opis źródła",
+                                              "name":  "source_text",
+                                              "aria-label":  "",
+                                              "type":  "textarea",
+                                              "instructions":  "",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "maxlength":  "",
+                                              "allow_in_bindings":  0,
+                                              "rows":  "",
+                                              "placeholder":  "",
+                                              "new_lines":  "",
+                                              "parent_repeater":  "field_6a57f8ad90279"
+                                          },
+                                          {
+                                              "key":  "field_6a57f8de9027b",
+                                              "label":  "Link",
+                                              "name":  "source_url",
+                                              "aria-label":  "",
+                                              "type":  "url",
+                                              "instructions":  "",
+                                              "required":  0,
+                                              "conditional_logic":  0,
+                                              "wrapper":  {
+                                                              "width":  "",
+                                                              "class":  "",
+                                                              "id":  ""
+                                                          },
+                                              "default_value":  "",
+                                              "allow_in_bindings":  0,
+                                              "placeholder":  "",
+                                              "parent_repeater":  "field_6a57f8ad90279"
+                                          }
+                                      ]
+                   }
+               ],
+    "location":  [
+                     [
+                         {
+                             "param":  "post_type",
+                             "operator":  "==",
+                             "value":  "budynek"
+                         }
+                     ]
+                 ],
+    "menu_order":  0,
+    "position":  "normal",
+    "style":  "default",
+    "label_placement":  "top",
+    "instruction_placement":  "label",
+    "hide_on_screen":  "",
+    "active":  true,
+    "description":  "",
+    "show_in_rest":  1,
+    "display_title":  "",
+    "allow_ai_access":  false,
+    "ai_description":  ""
+}

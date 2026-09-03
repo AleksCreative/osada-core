@@ -1,33 +1,35 @@
 <?php
 /**
  * Plugin Name: Osada Core
- * Description: Custom Post Types for Osada Fabryczna
+ * Description: Model danych i funkcje aplikacyjne serwisu Osada Fabryczna.
+ * Version: 1.2.0
+ * Text Domain: osada-core
  */
 
-if (!defined('ABSPATH')) exit;
-
-// Register CPT: Budynek
-function osada_register_budynek_cpt() {
-
-    register_post_type('budynek', [
-        'labels' => [
-            'name' => 'Budynki',
-            'singular_name' => 'Budynek',
-            'add_new' => 'Dodaj budynek',
-            'add_new_item' => 'Dodaj nowy budynek',
-            'edit_item' => 'Edytuj budynek',
-            'new_item' => 'Nowy budynek',
-            'view_item' => 'Zobacz budynek',
-            'search_items' => 'Szukaj budynków'
-        ],
-        'public' => true,
-        'has_archive' => true,
-        'show_in_nav_menus' => true,
-        'rewrite' => ['slug' => 'budynki'],
-        'menu_icon' => 'dashicons-location',
-        'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
-        'show_in_rest' => true
-    ]);
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-add_action('init', 'osada_register_budynek_cpt');
+define('OSADA_CORE_VERSION', '1.2.0');
+define('OSADA_CORE_PATH', plugin_dir_path(__FILE__));
+
+require_once OSADA_CORE_PATH . 'includes/building-model.php';
+require_once OSADA_CORE_PATH . 'includes/acf-json.php';
+require_once OSADA_CORE_PATH . 'admin/building-meta-boxes.php';
+
+/**
+ * Register plugin rewrite rules before flushing them on activation.
+ */
+function osada_core_activate() {
+    osada_register_budynek_cpt();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'osada_core_activate');
+
+/**
+ * Remove stale rewrite rules after deactivation.
+ */
+function osada_core_deactivate() {
+    flush_rewrite_rules();
+}
+register_deactivation_hook(__FILE__, 'osada_core_deactivate');
