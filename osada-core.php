@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Osada Core
  * Description: Model danych i funkcje aplikacyjne serwisu Osada Fabryczna.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Text Domain: osada-core
  */
 
