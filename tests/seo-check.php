@@ -32,6 +32,9 @@ function seo_json($head) {
 }
 
 seo_check(function_exists('osada_core_seo_head'), 'SEO module loaded');
+seo_check(str_contains(osada_core_llms_content(), 'Citation guidance'), 'bundled citation guide available');
+seo_check(str_contains(osada_core_llms_content(), home_url('/wp-sitemap.xml')), 'source guide uses actual site URL');
+seo_check(!str_contains(osada_core_llms_content(), 'https://osadafabryczna.pl/'), 'source guide has no production links on local site');
 seo_check(osada_core_seo_text('<script>alert(1)</script><p>Opis&nbsp; strony</p>') === 'Opis strony', 'HTML and scripts removed');
 seo_check(osada_core_seo_text('<p>Pierwszy akapit</p><p>Drugi<br>wiersz</p>') === 'Pierwszy akapit Drugi wiersz', 'paragraph and line break boundaries');
 seo_check(mb_strlen(osada_core_seo_text(str_repeat('Żyrardów ', 50), 160)) <= 160, 'Unicode truncation');
@@ -63,10 +66,11 @@ foreach (array('pl', 'en') as $language) {
     seo_query($args);
     $head = seo_head();
     $json = seo_json($head);
-    $page = end($json['@graph']);
-    seo_check($page['@type'] === 'CollectionPage', "$language collection schema");
-    seo_check($page['inLanguage'] === $language, "$language archive language");
-    seo_check(count($page['mainEntity']['itemListElement']) > 0, "$language archive links");
+    $page_node = end($json['@graph']);
+    seo_check($page_node['@type'] === 'CollectionPage', "$language collection schema");
+    seo_check($page_node['inLanguage'] === $language, "$language archive language");
+    seo_check(str_contains(wp_get_document_title(), 'en' === $language ? 'Historic buildings' : 'Zabytki'), "$language localized archive title");
+    seo_check(count($page_node['mainEntity']['itemListElement']) > 0, "$language archive links");
     seo_check(str_contains(osada_core_seo_canonical(), 'en' === $language ? '/eng/budynki/' : '/budynki/'), "$language archive canonical");
 }
 seo_query(array('post_type' => 'budynek', 'posts_per_page' => 2, 'paged' => 2, 'osada_language_archive' => 'en'));

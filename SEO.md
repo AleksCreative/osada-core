@@ -17,7 +17,9 @@ Wydawca i autor nie są zgadywani. Konsultacja muzealna nie jest przedstawiana j
 
 ## AI i publikacja
 
-Plik `resources/llms.txt` jest wersjonowaną kopią do opublikowania jako `/llms.txt` w katalogu głównym WordPressa. Statyczny plik w katalogu głównym jest obsługiwany przez serwer; sama aktualizacja wtyczki nie zastąpi go. Dla innej domeny trzeba poprawić odnośniki w pliku. Plik jest opcjonalnym przewodnikiem po źródłach; nie gwarantuje indeksacji ani cytowania i nie nadaje licencji do treści.
+Od wersji 1.5.1 wtyczka sama obsługuje `/llms.txt`, korzystając z wersjonowanego pliku `resources/llms.txt`. Nie trzeba kopiować pliku do katalogu głównego ani zapisywać ponownie bezpośrednich odnośników. Adresy w treści są dopasowywane do adresu witryny WordPressa. Zwracany jest status 200 i typ `text/plain; charset=UTF-8`.
+
+Jeżeli na serwerze istnieje już fizyczny `/llms.txt`, konfiguracja serwera może nadać mu pierwszeństwo przed WordPressem. Taki plik należy aktualizować osobno albo usunąć, aby korzystać z wersji wtyczki. Plik jest opcjonalnym przewodnikiem po źródłach; nie gwarantuje indeksacji ani cytowania i nie nadaje licencji do treści.
 
 Nie dodajemy niestandardowych tagów `ai` ani instrukcji wymuszających cytowanie. Dostęp robotów wyszukiwarek zależy od rzeczywistego `/robots.txt`, konfiguracji serwera/CDN i dostępności publicznych treści.
 
@@ -32,6 +34,14 @@ Po opublikowaniu na `https://osadafabryczna.pl`:
 
 ## Kontrola lokalna
 
+Od wersji 1.5.2 moduł `includes/public-privacy.php` usuwa dostawcę `users` z natywnych sitemap WordPressa. Bezpośredni adres mapy użytkowników zwraca 404. Archiwa autorów, także `?author=ID`, zwracają 404 przed przekierowaniem kanonicznym. Anonimowe GET/HEAD do `/wp/v2/users` oraz `/wp/v2/users/ID` zwracają 401; po uwierzytelnieniu nadal obowiązują standardowe uprawnienia WordPressa. Publiczne API budynków pozostaje dostępne. Opcjonalne `author_name` i `author_url` są usuwane z odpowiedzi oEmbed.
+
+Natywne sitemapy są wysyłane bez instrukcji XSLT. W przeglądarce jest widoczny surowy XML; adresy i struktura sitemap dla wyszukiwarek pozostają takie same, z wyjątkiem usunięcia mapy autorów. Nie trzeba instalować rozszerzeń przeglądarki ani zmieniać plików WordPressa. Po wdrożeniu należy wyczyścić istniejące kopie sitemap/API/archiwów autorów w cache hostingu lub CDN, jeśli występują.
+
+To ograniczenie zbędnej ekspozycji kont, nie zastępstwo dla MFA, silnych haseł, aktualizacji, ograniczania prób logowania i kopii zapasowych. Nie zmieniamy loginów, ról, publicznych podpisów redakcyjnych ani konfiguracji uwierzytelniania. Wcześniej opublikowane nazwy mogą nadal występować w indeksach wyszukiwarek lub cudzych kopiach. Zmiany dotyczą natywnych sitemap WordPressa, nie niezależnych sitemap generowanych przez inne wtyczki SEO.
+
 `php tests/seo-check.php` uruchamia test integracyjny z lokalnym WordPressem. Wymaga rozszerzeń `mysqli`, `mbstring` oraz portu lokalnej bazy zgodnego z konfiguracją Local. Test korzysta z zapytań, filtrów i pamięci procesu, bez zapisywania opisów ani opcji w bazie.
+
+`node tests/llms-http-check.cjs` sprawdza rzeczywiste odpowiedzi GET/HEAD i routing WordPressa dla `/llms.txt` na izolowanym serwerze PHP, bez zmiany reguł w bazie. `node tests/live-seo-check.cjs` odczytuje publiczne strony produkcyjne z mapy witryny i sprawdza metadane, schema, wzajemne hreflang, robots.txt, llms.txt i API budynków.
 
 Dokumentacja: https://developers.google.com/search/docs/appearance/snippet, https://developers.google.com/search/docs/appearance/ai-features, https://schema.org/LandmarksOrHistoricalBuildings.

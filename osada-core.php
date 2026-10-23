@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Osada Core
  * Description: Model danych i funkcje aplikacyjne serwisu Osada Fabryczna.
- * Version: 1.5.0
+ * Version: 1.5.2
  * Text Domain: osada-core
  */
 
@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('OSADA_CORE_VERSION', '1.3.0');
+define('OSADA_CORE_VERSION', '1.5.2');
 define('OSADA_CORE_PATH', plugin_dir_path(__FILE__));
 
 require_once OSADA_CORE_PATH . 'includes/building-model.php';
@@ -20,6 +20,8 @@ require_once OSADA_CORE_PATH . 'includes/language/language-routing.php';
 require_once OSADA_CORE_PATH . 'admin/building-meta-boxes.php';
 require_once OSADA_CORE_PATH . 'admin/language-meta-boxes.php';
 require_once OSADA_CORE_PATH . 'includes/seo.php';
+require_once OSADA_CORE_PATH . 'includes/llms.php';
+require_once OSADA_CORE_PATH . 'includes/public-privacy.php';
 require_once OSADA_CORE_PATH . 'admin/seo-meta-boxes.php';
 
 /**

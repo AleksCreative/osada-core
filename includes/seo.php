@@ -296,3 +296,11 @@ function osada_core_seo_language_attributes($attributes) {
     return preg_replace('/\b((?:xml:)?lang)=("|\x27)[^"\x27]*\2/', '$1="' . $language . '"', $attributes);
 }
 add_filter('language_attributes', 'osada_core_seo_language_attributes');
+
+function osada_core_seo_document_title_parts($parts) {
+    if (osada_core_seo_enabled() && is_post_type_archive('budynek') && !osada_core_seo_is_private()) {
+        $parts['title'] = 'en' === osada_core_get_current_language() ? 'Historic buildings' : 'Zabytki';
+    }
+    return $parts;
+}
+add_filter('document_title_parts', 'osada_core_seo_document_title_parts');
