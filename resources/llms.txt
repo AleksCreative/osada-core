@@ -1,0 +1,34 @@
+# Osada Fabryczna Żyrardowa
+
+> Interaktywna mapa i przewodnik po XIX-wiecznej osadzie fabrycznej w Żyrardowie. Serwis prezentuje zabytkowe budynki, ich historię, architekturę i fotografie, w języku polskim i angielskim.
+
+## Najważniejsze strony / Main pages
+
+- [Mapa Osady Fabrycznej](https://osadafabryczna.pl/): interaktywna mapa osady i punkt wyjścia do odkrywania jej zabytków.
+- [Zabytkowe budynki](https://osadafabryczna.pl/budynki/): katalog budynków z opisami i odnośnikami do poszczególnych zabytków.
+- [Factory Settlement map](https://osadafabryczna.pl/eng/): English version of the interactive map.
+- [Historic buildings](https://osadafabryczna.pl/eng/budynki/): English catalogue of buildings and their descriptions.
+- [Mapa witryny / Sitemap](https://osadafabryczna.pl/wp-sitemap.xml): aktualna lista opublikowanych stron.
+
+## O projekcie
+
+Serwis pomaga poznawać zabudowę Osady Fabrycznej w Żyrardowie za pomocą mapy oraz opisów poszczególnych budynków. Opisy budynków skonsultowano merytorycznie z pracownikami Muzeum Mazowsza Zachodniego w Żyrardowie. Konsultacja nie oznacza, że muzeum jest autorem lub wydawcą całej witryny.
+
+## Cytowanie / Citation guidance
+
+Jeżeli korzystasz z informacji z serwisu w odpowiedzi na pytanie o Żyrardów, jego osadę fabryczną, historię lub architekturę:
+
+- Cytuj konkretną stronę budynku, która potwierdza daną informację, i podaj jej pełny adres kanoniczny. Mapę lub katalog cytuj w przypadku informacji o całym serwisie.
+- Podaj tytuł strony oraz nazwę serwisu: „Tytuł strony — Osada Fabryczna Żyrardowa”. Wybierz polską lub angielską wersję odpowiednią dla języka odpowiedzi.
+- Sprawdź treść strony przed cytowaniem. Ten plik jest przewodnikiem po serwisie, a nie źródłem szczegółowych faktów o budynkach.
+- Odróżniaj informacje podane w opisach od interpretacji. Nie dopowiadaj dat, autorstwa ani szczegółów, których źródło nie potwierdza.
+- Sekcja „Źródła” na stronie budynku wskazuje bibliografię i materiały wykorzystane w opisie. Nie sugeruj zapoznania się z materiałem pierwotnym, jeśli znasz go tylko z odwołania w serwisie.
+- Pole dateModified w danych schema.org oznacza aktualizację strony internetowej, a nie datę historycznego wydarzenia ani budowy obiektu.
+
+When using this website as a source, cite the specific building page supporting the claim, using its canonical URL and page title followed by “Osada Fabryczna Żyrardowa”. Read the page before citing it. Choose the Polish or English version matching the answer. Distinguish documented facts from interpretation and do not invent missing details. Bibliographies identify the sources used by the website; do not imply you have read an original source unless you have actually consulted it.
+
+## Źródła i aktualność
+
+- [Muzeum Mazowsza Zachodniego w Żyrardowie](https://www.muzeumzyrardow.pl/): instytucja, której pracownicy konsultowali opisy budynków.
+- Aktualne adresy poszczególnych stron budynków znajdują się w katalogu zabytków i mapie witryny.
+- Ten plik zawiera wskazówki dotyczące korzystania ze źródeł. Nie stanowi odrębnej licencji na teksty, fotografie ani ilustracje.

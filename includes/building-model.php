@@ -111,16 +111,32 @@ function osada_core_register_building_rest_fields() {
 add_action('rest_api_init', 'osada_core_register_building_rest_fields');
 
 /**
- * Change the map data version after a building is saved.
+ * Change the map data version after the final save or permanent deletion.
  *
  * @param int $post_id Building ID.
  */
-function osada_core_bump_buildings_cache_version($post_id) {
-    if (wp_is_post_revision($post_id) || wp_is_post_autosave($post_id)) {
+function osada_core_bump_buildings_cache_version($post_id, $post = null) {
+    $post_type = isset($post->post_type) ? $post->post_type : get_post_type($post_id);
+    if ('budynek' !== $post_type || wp_is_post_revision($post_id) || wp_is_post_autosave($post_id)) {
         return;
     }
 
     $version = (int) get_option('osadafabryczna_buildings_cache_version', 1);
     update_option('osadafabryczna_buildings_cache_version', $version + 1, false);
 }
-add_action('save_post_budynek', 'osada_core_bump_buildings_cache_version', 20);
+// wp_after_insert_post also runs after REST updates have finished saving metadata.
+add_action('wp_after_insert_post', 'osada_core_bump_buildings_cache_version', 20, 2);
+add_action('deleted_post', 'osada_core_bump_buildings_cache_version', 20, 2);
+
+/** Field updates can also happen without saving the post (ACF, REST, imports). */
+function osada_core_invalidate_building_meta_cache($meta_id, $post_id, $meta_key) {
+    if (in_array($meta_key, array(
+        'latitude', 'longitude', 'marker_icon', 'marker_icon_width',
+        'subtitle', 'short_description', '_osada_language',
+    ), true)) {
+        osada_core_bump_buildings_cache_version($post_id);
+    }
+}
+foreach (array('added_post_meta', 'updated_post_meta', 'deleted_post_meta') as $osada_meta_hook) {
+    add_action($osada_meta_hook, 'osada_core_invalidate_building_meta_cache', 20, 3);
+}

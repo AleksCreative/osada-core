@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Osada Core
  * Description: Model danych i funkcje aplikacyjne serwisu Osada Fabryczna.
- * Version: 1.4.0
+ * Version: 1.5.0
  * Text Domain: osada-core
  */
 
@@ -19,6 +19,8 @@ require_once OSADA_CORE_PATH . 'includes/language/language-model.php';
 require_once OSADA_CORE_PATH . 'includes/language/language-routing.php';
 require_once OSADA_CORE_PATH . 'admin/building-meta-boxes.php';
 require_once OSADA_CORE_PATH . 'admin/language-meta-boxes.php';
+require_once OSADA_CORE_PATH . 'includes/seo.php';
+require_once OSADA_CORE_PATH . 'admin/seo-meta-boxes.php';
 
 /**
  * Register plugin rewrite rules before flushing them on activation.

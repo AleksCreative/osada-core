@@ -57,6 +57,7 @@ function osada_core_render_language_meta_box($post) {
         <select id="osada_translation_id" name="osada_translation_id" class="widefat">
             <option value="0"><?php esc_html_e('None', 'osada-core'); ?></option>
             <?php foreach ($posts as $translation_post) : ?>
+                <?php if (!current_user_can('edit_post', $translation_post->ID)) continue; ?>
                 <option value="<?php echo esc_attr($translation_post->ID); ?>" <?php selected($translation_id, $translation_post->ID); ?>>
                     <?php echo esc_html(get_the_title($translation_post)); ?>
                 </option>
@@ -81,7 +82,8 @@ function osada_core_save_language_meta($post_id) {
         return;
     }
 
-    if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || !current_user_can('edit_post', $post_id)) {
+    if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || wp_is_post_revision($post_id)
+        || !current_user_can('edit_post', $post_id)) {
         return;
     }
 
@@ -94,6 +96,37 @@ function osada_core_save_language_meta($post_id) {
     $language       = in_array($language, array('pl', 'en'), true) ? $language : 'pl';
     $translation_id = isset($_POST['osada_translation_id']) ? absint($_POST['osada_translation_id']) : 0;
 
+    // Validate the complete change before modifying either side of a relationship.
+    if ($translation_id && ($translation_id === (int) $post_id
+        || get_post_type($translation_id) !== $post_type
+        || !current_user_can('edit_post', $translation_id)
+        || 'trash' === get_post_status($translation_id)
+        || $language === (get_post_meta($translation_id, '_osada_language', true) ?: 'pl'))) {
+        osada_core_language_pair_error();
+        return;
+    }
+
+    $old_translation_id = (int) get_post_meta($post_id, '_osada_translation_id', true);
+    $target_previous_id = $translation_id ? (int) get_post_meta($translation_id, '_osada_translation_id', true) : 0;
+    $detach = array();
+    if ($old_translation_id && $old_translation_id !== $translation_id
+        && (int) get_post_meta($old_translation_id, '_osada_translation_id', true) === (int) $post_id) {
+        $detach[] = $old_translation_id;
+    }
+    if ($target_previous_id && $target_previous_id !== (int) $post_id
+        && (int) get_post_meta($target_previous_id, '_osada_translation_id', true) === $translation_id) {
+        $detach[] = $target_previous_id;
+    }
+    foreach (array_unique($detach) as $detached_id) {
+        if (!current_user_can('edit_post', $detached_id)) {
+            osada_core_language_pair_error();
+            return;
+        }
+    }
+
+    foreach (array_unique($detach) as $detached_id) {
+        delete_post_meta($detached_id, '_osada_translation_id');
+    }
     update_post_meta($post_id, '_osada_language', $language);
 
     if ($translation_id) {
@@ -105,3 +138,17 @@ function osada_core_save_language_meta($post_id) {
     delete_post_meta($post_id, '_osada_translation_id');
 }
 add_action('save_post', 'osada_core_save_language_meta');
+
+function osada_core_language_pair_error() {
+    add_filter('redirect_post_location', function ($location) {
+        return add_query_arg('osada_language_error', '1', $location);
+    });
+}
+
+function osada_core_language_pair_notice() {
+    if (!isset($_GET['osada_language_error']) || '1' !== $_GET['osada_language_error']) return;
+    echo '<div class="notice notice-error"><p>';
+    esc_html_e('Nie zapisano ustawień języka. Wybierz inny wpis tego samego typu w drugim języku. Musisz mieć prawo edycji obu wpisów i ich dotychczasowych tłumaczeń. Aby rozłączyć parę, wybierz „None”.', 'osada-core');
+    echo '</p></div>';
+}
+add_action('admin_notices', 'osada_core_language_pair_notice');
